@@ -1,18 +1,56 @@
-module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
+/** @type {import("eslint").Linter.Config} */
+const config = {
   extends: [
-    'eslint:recommended',
+    'next',
+    'turbo',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier',
+    'plugin:react/recommended',
+    'plugin:tailwindcss/recommended',
+    'plugin:storybook/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
+    '@next/next/no-html-link-for-pages': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
     ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
+    ],
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: {
+          // Allow `void` return type for JSX attributes such as `onClick` / `onSubmit`
+          attributes: false,
+        },
+      },
+    ],
+    '@next/next/no-html-link-for-pages': 'off',
+    'react/jsx-key': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-sort-props': [
+      'warn',
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        noSortAlphabetically: false,
+        reservedFirst: true,
+      },
+    ],
+    'tailwindcss/classnames-order': 'off',
+    'tailwindcss/no-custom-classname': 'off',
   },
-}
+  ignorePatterns: ['**/*.config.js', '**/*.config.cjs', 'packages/config/**'],
+  reportUnusedDisableDirectives: true,
+};
+
+module.exports = config;
