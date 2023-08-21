@@ -1,4 +1,5 @@
 import {
+	Badge,
 	Card,
 	Table,
 	TableBody,
@@ -44,7 +45,12 @@ const users: {
 const ListOfUsers = () => {
 	return (
 		<Card>
-			<Title>Usuarios</Title>
+			<Title>
+				Usuarios
+				<Badge color="blue" style={{ marginLeft: "8px" }}>
+					{users.length}
+				</Badge>
+			</Title>
 			<Table>
 				<TableHead>
 					<TableRow>
