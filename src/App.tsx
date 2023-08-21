@@ -1,14 +1,13 @@
-import './App.css'
+import "./App.css";
+import { CreateNewUser, ListOfUsers } from "./components";
 
 function App() {
-
-  return (
-    <>
-      <div>
-        <h1>Hello world!</h1>
-      </div>
-    </>
-  )
+	return (
+		<>
+			<ListOfUsers />
+			<CreateNewUser />
+		</>
+	);
 }
 
-export default App
+export default App;
