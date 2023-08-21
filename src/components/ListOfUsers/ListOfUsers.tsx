@@ -47,7 +47,7 @@ const ListOfUsers = () => {
 		<Card>
 			<Title>
 				Usuarios
-				<Badge color="blue" style={{ marginLeft: "8px" }}>
+				<Badge color="blue" style={{ marginLeft: "8px", borderRadius: "50%" }}>
 					{users.length}
 				</Badge>
 			</Title>
