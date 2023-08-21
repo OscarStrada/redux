@@ -6,6 +6,7 @@ import {
 	TableHead,
 	TableHeaderCell,
 	TableRow,
+	Title,
 } from "@tremor/react";
 
 const users: {
@@ -43,6 +44,7 @@ const users: {
 const ListOfUsers = () => {
 	return (
 		<Card>
+			<Title>Usuarios</Title>
 			<Table>
 				<TableHead>
 					<TableRow>
