@@ -9,40 +9,11 @@ import {
 	TableRow,
 	Title,
 } from "@tremor/react";
-
-const users: {
-	id: string;
-	name: string;
-	email: string;
-	github: string;
-}[] = [
-	{
-		id: "1",
-		name: "Peter Doe",
-		email: "peterdoe@gmail.com",
-		github: "peterdoe",
-	},
-	{
-		id: "2",
-		name: "Alexis Guzman",
-		email: "codingcodax@gmail.com",
-		github: "codingcodax",
-	},
-	{
-		id: "3",
-		name: "Nagib Gonzalez",
-		email: "nagibrodriguez@gmail.com",
-		github: "inagib21",
-	},
-	{
-		id: "4",
-		name: "Oscar Estrada",
-		email: "oestrada@gmail.com",
-		github: "OscarStrada",
-	},
-];
+import { useSelector } from "react-redux";
 
 const ListOfUsers = () => {
+	const users = useSelector((state) => state.users);
+
 	return (
 		<Card>
 			<Title>
