@@ -9,10 +9,16 @@ import {
 	TableRow,
 	Title,
 } from "@tremor/react";
-import { useAppSelector } from "../../hooks/useStore";
+import { useAppDispatch, useAppSelector } from "../../hooks/useStore";
+import { UserId, deleteUserById } from "../../store/users/slice";
 
 const ListOfUsers = () => {
 	const users = useAppSelector((state) => state.users);
+	const dispatch = useAppDispatch();
+
+	const handleRemoveUser = (id: UserId) => {
+		dispatch(deleteUserById(id));
+	};
 
 	return (
 		<Card>
@@ -71,7 +77,7 @@ const ListOfUsers = () => {
 									</svg>
 								</button>
 
-								<button type="button">
+								<button type="button" onClick={() => handleRemoveUser(item.id)}>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
