@@ -1,10 +1,11 @@
 import "./App.css";
-import { ListOfUsers } from "./components";
+import { CreateNewUser, ListOfUsers } from "./components";
 
 function App() {
 	return (
 		<>
 			<ListOfUsers />
+			<CreateNewUser />
 		</>
 	);
 }
